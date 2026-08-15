@@ -1,0 +1,3 @@
+- insert:
+    - id: jobs-app
+      name: '@wha1echai/dsh-jobs-app'

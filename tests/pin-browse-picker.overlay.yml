@@ -1,0 +1,10 @@
+# Playwright cannot drive the native OS chooser that directory-picker-auto
+# mounts on Windows loopback. Pin the in-app browse dialog the same way DSH
+# web e2e does (`dsh web --patch`).
+- id: directory-picker
+  disabled: true
+- insert:
+    - id: directory-picker-browse
+      name: '@deepseek-ai/dsh-host-directory-picker-browse'
+    - id: ui-directory-picker-browse
+      name: '@deepseek-ai/dsh-client-ui-directory-picker-browse'
