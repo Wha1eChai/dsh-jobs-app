@@ -9,8 +9,8 @@ const BROWSE_PICKER_PATCH = fileURLToPath(new URL('../tests/pin-browse-picker.ov
 const READY_PATTERN = /dsh web: (http:\/\/[^\s]+)/u
 const READY_TIMEOUT_MS = 120_000
 const STOP_TIMEOUT_MS = 15_000
-const JOBS_PATH = '/apps/wha1echai.jobs'
-const UNKNOWN_JOB_PATH = '/apps/wha1echai.jobs/missing-job'
+const JOBS_PATH = '/apps/dshapps.jobs'
+const UNKNOWN_JOB_PATH = '/apps/dshapps.jobs/missing-job'
 
 function fail(message, cause) {
   const error = new Error(message)

@@ -35,11 +35,11 @@ describe('Jobs App composition', () => {
 
     apply(ctx as never)
 
-    expect(name).toBe('@wha1echai/dsh-jobs-app')
+    expect(name).toBe('@dshapps/jobs-app')
     expect(inject).toEqual(['pages', 'slots', 'locale', 'sessions'])
     expect(effect).toHaveBeenCalledOnce()
     expect(pageRegister).toHaveBeenCalledWith(expect.objectContaining({
-      id: 'wha1echai.jobs',
+      id: 'dshapps.jobs',
       label: 'Jobs',
       surface: 'panel',
     }))
@@ -48,16 +48,16 @@ describe('Jobs App composition', () => {
     expect(slotInject).toHaveBeenCalledWith('conversation.session.header.actions', expect.any(Function))
     expect(slotRegister).toHaveBeenCalledWith({
       name: 'webpage.app',
-      key: 'wha1echai.jobs',
+      key: 'dshapps.jobs',
       locale: 'jobs',
       children: {
-        'wha1echai.jobs.actions': { kind: 'list', scope: 'root' },
+        'dshapps.jobs.actions': { kind: 'list', scope: 'root' },
       },
       inject: expect.any(Function),
     }, JobsAppBody)
     expect(slotRegister).toHaveBeenCalledWith({
       name: 'conversation.session.header.actions',
-      id: 'wha1echai.jobs',
+      id: 'dshapps.jobs',
       order: 25,
       locale: 'jobs',
       inject: expect.any(Function),
@@ -67,7 +67,7 @@ describe('Jobs App composition', () => {
     expect(appFace.hooks.sessions).toBe(list)
     const headerFace = (slotRegister.mock.calls[1]![0] as { inject(): { openJobs(): void } }).inject()
     headerFace.openJobs()
-    expect(open).toHaveBeenCalledWith('wha1echai.jobs', '/')
+    expect(open).toHaveBeenCalledWith('dshapps.jobs', '/')
 
     cleanups[0]!()
     expect(unregisterHeader).toHaveBeenCalledOnce()
@@ -88,7 +88,7 @@ describe('Jobs App host and invariant entries', () => {
     expect(invariantInject).toEqual(['invariants'])
     const register = vi.fn(() => () => {})
     const disposer = await applyInvariant({ invariants: { register } } as never)
-    expect(register).toHaveBeenCalledWith('@wha1echai/dsh-jobs-app', expect.any(Function))
+    expect(register).toHaveBeenCalledWith('@dshapps/jobs-app', expect.any(Function))
     register.mock.calls[0]![1]()
     disposer()
   })

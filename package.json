@@ -1,7 +1,7 @@
 {
-  "name": "@wha1echai/dsh-jobs-app",
+  "name": "@dshapps/jobs-app",
   "description": "Independent DSH Jobs App: session job list and read-only detail over Webpage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
@@ -25,7 +25,7 @@
   "dsh": {
     "client": {
       "inject": [
-        "@wha1echai/dsh-webpage",
+        "@dshapps/webpage",
         "@deepseek-ai/dsh-client-locale",
         "@deepseek-ai/dsh-client-runtime",
         "@deepseek-ai/dsh-client-ui-conversation",
@@ -78,7 +78,7 @@
     "@deepseek-ai/dsh-client-ui-primitives": "0.1.0-rc.6",
     "@deepseek-ai/dsh-client-ui-slots": "0.1.0-rc.6",
     "@deepseek-ai/dsh-invariants": "0.1.0-rc.6",
-    "@wha1echai/dsh-webpage": "0.1.0",
+    "@dshapps/webpage": "0.2.0",
     "react": "18.3.1"
   },
   "devDependencies": {
@@ -93,8 +93,8 @@
     "@types/node": "22.20.0",
     "@types/react": "18.3.1",
     "@vitest/coverage-v8": "4.1.8",
-    "@wha1echai/dsh-app-check": "file:../dsh-app-check",
-    "@wha1echai/dsh-webpage": "0.1.0",
+    "@dshapps/app-check": "file:../dsh-app-check",
+    "@dshapps/webpage": "0.2.0",
     "jsdom": "29.1.1",
     "lightningcss": "1.32.0",
     "playwright": "1.61.1",

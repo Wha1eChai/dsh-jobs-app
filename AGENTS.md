@@ -1,10 +1,10 @@
 # AGENTS
 
-Independent DSH Jobs App. Peer on `@wha1echai/dsh-webpage`. Do not import Webpage source paths; use the public `/client` export for types only.
+Independent DSH Jobs App. Peer on `@dshapps/webpage`. Do not import Webpage source paths; use the public `/client` export for types only.
 
 ## Invariants
 
-- App ID is `wha1echai.jobs`.
+- App ID is `dshapps.jobs`.
 - `ctx.pages.register()` is metadata-only. Navigation is `ctx.pages.open` / `close`.
 - Data comes from `jobsBySession`. No RPC, cancel, streamed output, or Host remotes.
 - Do not fork `@deepseek-ai/dsh-client-ui-jobs`. The header action is a deep-link, not a popover list.
@@ -13,7 +13,7 @@ Independent DSH Jobs App. Peer on `@wha1echai/dsh-webpage`. Do not import Webpag
 
 ## Layout
 
-- `src/index.ts` — host `apply()` and the `wha1echai.jobs.actions` slot declaration
+- `src/index.ts` — host `apply()` and the `dshapps.jobs.actions` slot declaration
 - `src/client/` — App UI, header launcher, locales
 - `cordis.patch.yml` — webpage then jobs-app
 - `tests/` — unit composition and UI

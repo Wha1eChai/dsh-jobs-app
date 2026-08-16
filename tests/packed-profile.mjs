@@ -22,8 +22,8 @@ const expectedDshVersion = '0.1.0-rc.6'
 const profileName = 'web'
 
 export const packageNames = Object.freeze({
-  webpage: '@wha1echai/dsh-webpage',
-  jobs: '@wha1echai/dsh-jobs-app',
+  webpage: '@dshapps/webpage',
+  jobs: '@dshapps/jobs-app',
 })
 
 const packageDirectories = Object.freeze({
@@ -229,8 +229,8 @@ async function resolvedPackageRoot(profileDirectory, tempRoot, packageName) {
 
 function assertDumpConfig(dump) {
   const expectedRows = [
-    "name: '@wha1echai/dsh-webpage'",
-    "name: '@wha1echai/dsh-jobs-app'",
+    "name: '@dshapps/webpage'",
+    "name: '@dshapps/jobs-app'",
   ]
   let previous = -1
   for (const row of expectedRows) {
@@ -277,8 +277,8 @@ export async function createPackedJobsProfile() {
     runDsh(['plugin', '--profile', profileName, 'add', archives.jobs, ...pnpmOptions])
 
     const manifest = JSON.parse(await readFile(join(profileDirectory, 'package.json'), 'utf8'))
-    const whaDependencies = Object.keys(manifest.dependencies ?? {}).filter((name) => name.startsWith('@wha1echai/')).sort()
-    assert(JSON.stringify(whaDependencies) === JSON.stringify([packageNames.jobs, packageNames.webpage].sort()), `top-level plugin dependencies must contain webpage and jobs-app, found ${JSON.stringify(whaDependencies)}`)
+    const dshappsDependencies = Object.keys(manifest.dependencies ?? {}).filter((name) => name.startsWith('@dshapps/')).sort()
+    assert(JSON.stringify(dshappsDependencies) === JSON.stringify([packageNames.jobs, packageNames.webpage].sort()), `top-level plugin dependencies must contain webpage and jobs-app, found ${JSON.stringify(dshappsDependencies)}`)
     const expectedBundles = ['@deepseek-ai/dsh-base', '@deepseek-ai/dsh-web-app', packageNames.webpage, packageNames.jobs]
     assert(JSON.stringify(manifest.dsh?.profile?.bundles) === JSON.stringify(expectedBundles), `profile bundles changed: ${JSON.stringify(manifest.dsh?.profile?.bundles)}`)
 

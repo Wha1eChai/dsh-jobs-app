@@ -1,38 +1,38 @@
 # dsh-jobs-app
 
-Historical example. Package `@wha1echai/dsh-jobs-app`. App ID `wha1echai.jobs`, `surface: 'panel'`. Deliberately not in the standing web profile.
+Historical example. Package `@dshapps/jobs-app`. App ID `dshapps.jobs`, `surface: 'panel'`. Deliberately not in the standing web profile.
 
 An independent DeepSeek Harness App for the current session's background jobs. It reads `jobsBySession` for the selected session read-only. It does not cancel jobs, stream output, or add Host remotes. It does not fork or replace the official `@deepseek-ai/dsh-client-ui-jobs` popover.
 
-This package is a Webpage consumer, not a Webpage feature. It peers on `@wha1echai/dsh-webpage` and registers App ID `wha1echai.jobs`. The pack inserts only this plugin.
+This package is a Webpage consumer, not a Webpage feature. It peers on `@dshapps/webpage` and registers App ID `dshapps.jobs`. The pack inserts only this plugin.
 
 ## What it does
 
-- `/apps/wha1echai.jobs` — read-only list of `jobsBySession` for the selected session
-- `/apps/wha1echai.jobs/<jobId>` — read-only detail (kind, label, status, detail, duration)
+- `/apps/dshapps.jobs` — read-only list of `jobsBySession` for the selected session
+- `/apps/dshapps.jobs/<jobId>` — read-only detail (kind, label, status, detail, duration)
 - Declares `surface: 'panel'` so the conversation stays visible
-- Uses the optional `@wha1echai/dsh-webpage/ui` kit
+- Uses the optional `@dshapps/webpage/ui` kit
 - Unknown job ids stay on the URL and show an unavailable state
-- Header action calls `ctx.pages.open('wha1echai.jobs', '/')`
-- Child slot `wha1echai.jobs.actions` for later kind-specific extensions; the section is omitted when empty
+- Header action calls `ctx.pages.open('dshapps.jobs', '/')`
+- Child slot `dshapps.jobs.actions` for later kind-specific extensions; the section is omitted when empty
 
 ## Requirements
 
 - DSH `0.1.0-rc.6`
 - Node `^22.19.0 || >=24.0.0`
 - pnpm `11.7.0`
-- `@wha1echai/dsh-webpage` `0.1.0` present in the profile first
+- `@dshapps/webpage` `0.2.0` present in the profile first
 
 ## Install
 
-Nothing in this family is published to npm yet. Pack this App after a build, then add the tarball to a web profile that already has `@wha1echai/dsh-webpage`:
+Nothing in this family is published to npm yet. Pack this App after a build, then add the tarball to a web profile that already has `@dshapps/webpage`:
 
 ```powershell
-dsh plugin --profile web add .\wha1echai-dsh-webpage-0.1.0.tgz
-dsh plugin --profile web add .\wha1echai-dsh-jobs-app-0.1.0.tgz
+dsh plugin --profile web add .\dshapps-webpage-0.2.0.tgz
+dsh plugin --profile web add .\dshapps-jobs-app-0.2.0.tgz
 ```
 
-Adding the Jobs App tarball also works when `@wha1echai/dsh-webpage` is already installed. The bundle patch inserts this App. Install `@wha1echai/dsh-webpage` first so the kernel is already in the profile.
+Adding the Jobs App tarball also works when `@dshapps/webpage` is already installed. The bundle patch inserts this App. Install `@dshapps/webpage` first so the kernel is already in the profile.
 
 ## Verify
 

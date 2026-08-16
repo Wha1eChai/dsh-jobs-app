@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
 import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type { AppDescriptor } from '@wha1echai/dsh-webpage/client'
+import type { AppDescriptor } from '@dshapps/webpage/client'
 import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
 
 import { JobsHeaderAction } from './JobsHeaderAction.js'
@@ -14,7 +14,7 @@ export const JobsAppBody = lazy(async () => {
 })
 
 const descriptor = Object.freeze({
-  id: 'wha1echai.jobs',
+  id: 'dshapps.jobs',
   label: 'Jobs',
   description: 'Current-session background jobs as an addressable Webpage App.',
   order: 20,
@@ -23,10 +23,10 @@ const descriptor = Object.freeze({
 }) satisfies AppDescriptor
 
 const LOCALE_NAMESPACE = 'jobs'
-const APP_ID = 'wha1echai.jobs'
+const APP_ID = 'dshapps.jobs'
 
 /** Stable Loader identity used for Cordis fiber provenance. */
-export const name = '@wha1echai/dsh-jobs-app'
+export const name = '@dshapps/jobs-app'
 
 /** Client services required by the Jobs App and its header launcher. */
 export const inject = ['pages', 'slots', 'locale', 'sessions']
@@ -41,7 +41,7 @@ export function apply(ctx: ClientContext): void {
       key: APP_ID,
       locale: LOCALE_NAMESPACE,
       children: {
-        'wha1echai.jobs.actions': { kind: 'list', scope: 'root' },
+        'dshapps.jobs.actions': { kind: 'list', scope: 'root' },
       },
       inject: () => ({
         hooks: { sessions: ctx.sessions.list },
@@ -49,7 +49,7 @@ export function apply(ctx: ClientContext): void {
     }, JobsAppBody))
     const unregisterHeader = ctx.slots.inject('conversation.session.header.actions', () => ctx.slots.register({
       name: 'conversation.session.header.actions',
-      id: 'wha1echai.jobs',
+      id: 'dshapps.jobs',
       order: 25,
       locale: LOCALE_NAMESPACE,
       inject: () => ({

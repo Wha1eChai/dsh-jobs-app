@@ -1,8 +1,8 @@
-/** @type {import('@wha1echai/dsh-app-check').AppCheckConfig} */
+/** @type {import('@dshapps/app-check').AppCheckConfig} */
 export default {
-  name: '@wha1echai/dsh-jobs-app',
+  name: '@dshapps/jobs-app',
   expectedClientInject: [
-    '@wha1echai/dsh-webpage',
+    '@dshapps/webpage',
     '@deepseek-ai/dsh-client-locale',
     '@deepseek-ai/dsh-client-runtime',
     '@deepseek-ai/dsh-client-ui-conversation',
@@ -26,8 +26,8 @@ export default {
     'package/lib/types/client/JobsApp.d.ts',
     'package/lib/types/client/JobsHeaderAction.d.ts',
   ],
-  patchMustInclude: ["name: '@wha1echai/dsh-jobs-app'"],
-  patchMustNotInclude: ["name: '@wha1echai/dsh-webpage'"],
+  patchMustInclude: ["name: '@dshapps/jobs-app'"],
+  patchMustNotInclude: ["name: '@dshapps/webpage'"],
   allowFileDshPins: false,
   require: {
     publishable: true,

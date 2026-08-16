@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Button } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { JobView, SessionListState } from '@deepseek-ai/dsh-client-runtime/client'
 import type { HostObservable, InjectFace, PropsLocale, PropsRenderSlots } from '@deepseek-ai/dsh-client-ui-slots'
-import type { WebpageAppSlotProps } from '@wha1echai/dsh-webpage/client'
-import { AppEmpty, AppField, AppFields, AppList, AppPage, AppRow } from '@wha1echai/dsh-webpage/ui'
+import type { WebpageAppSlotProps } from '@dshapps/webpage/client'
+import { AppEmpty, AppField, AppFields, AppList, AppPage, AppRow } from '@dshapps/webpage/ui'
 import type { JobsAppOwner } from '../index.js'
 import { JobDuration, JobKindMark, JobStatus } from './JobFields.js'
 import { isLive, jobIdFromPath, NO_JOBS, ordered, statusKey } from './job-view.js'
@@ -17,7 +17,7 @@ interface JobsAppInject {
 
 export type JobsAppProps =
   WebpageAppSlotProps
-  & PropsRenderSlots<'wha1echai.jobs.actions'>
+  & PropsRenderSlots<'dshapps.jobs.actions'>
   & PropsLocale<'jobs'>
   & InjectFace<JobsAppInject>
 
@@ -121,7 +121,7 @@ export function JobsApp({ appPath, navigate, renderSlot, t, useSessions }: JobsA
   const jobId = jobIdFromPath(appPath)
   const job = jobId === undefined ? undefined : jobs.find(entry => entry.id === jobId)
   const owner: JobsAppOwner = Object.freeze(jobId === undefined ? { appPath } : { appPath, jobId })
-  const actions = renderSlot('wha1echai.jobs.actions', owner)
+  const actions = renderSlot('dshapps.jobs.actions', owner)
   const liveCount = jobs.filter(isLive).length
   const [now, setNow] = useState(() => Date.now())
 

@@ -7,7 +7,7 @@ export interface JobsAppOwner {
 declare module '@deepseek-ai/dsh-client-ui-slots' {
   interface SlotMap {
     /** Kind-specific actions contributed under the Jobs App. */
-    'wha1echai.jobs.actions': {
+    'dshapps.jobs.actions': {
       kind: 'list'
       scope: 'root'
       owner: JobsAppOwner

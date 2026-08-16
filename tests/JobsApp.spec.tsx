@@ -39,7 +39,7 @@ function props(
   close = vi.fn(),
 ): JobsAppProps {
   return {
-    appId: 'wha1echai.jobs',
+    appId: 'dshapps.jobs',
     appPath,
     search: '',
     hash: '',
@@ -71,7 +71,7 @@ describe('JobsApp', () => {
     expect(screen.getByRole('article').getAttribute('data-route')).toBe('/')
     expect(screen.getByText('No jobs')).toBeTruthy()
     expect(screen.queryByRole('button', { name: 'Close app' })).toBeNull()
-    expect(renderSlot).toHaveBeenCalledWith('wha1echai.jobs.actions', { appPath: '/' })
+    expect(renderSlot).toHaveBeenCalledWith('dshapps.jobs.actions', { appPath: '/' })
     expect(screen.getByRole('button', { name: 'Kind action' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Extension actions' })).toBeTruthy()
   })
@@ -119,7 +119,7 @@ describe('JobsApp', () => {
     expect(screen.getByText('pwsh')).toBeTruthy()
     expect(document.querySelector('[data-field="status"]')?.textContent).toContain('completed')
     expect(document.querySelector('[data-field="detail"]')?.textContent).toContain('completed')
-    expect(renderSlot).toHaveBeenCalledWith('wha1echai.jobs.actions', { appPath: '/bash-1', jobId: 'bash-1' })
+    expect(renderSlot).toHaveBeenCalledWith('dshapps.jobs.actions', { appPath: '/bash-1', jobId: 'bash-1' })
     fireEvent.click(screen.getByRole('button', { name: 'Back to list' }))
     expect(screen.queryByRole('button', { name: 'Close app' })).toBeNull()
     expect(navigate).toHaveBeenCalledWith('/')
