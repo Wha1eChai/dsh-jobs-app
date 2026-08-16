@@ -37,8 +37,8 @@ Adding the Jobs App tarball also works when `@dshapps/webpage` is already instal
 ## Verify
 
 ```powershell
-pnpm install --frozen-lockfile
-pnpm verify
+corepack pnpm@11.7.0 install --frozen-lockfile
+corepack pnpm@11.7.0 run verify
 ```
 
 Optional extra lanes in this repo: `node scripts/packed-install.mjs` and `node scripts/browser.mjs`. The browser lane pins the in-app directory picker (`dsh web --patch`) so Playwright can connect a workspace.
@@ -47,4 +47,4 @@ On machines where nested `pnpm run` resolves pnpm `11.0.9` against `packageManag
 
 ## Family
 
-The platform repository [dsh-webpage](https://github.com/Wha1eChai/dsh-webpage) holds the kernel, the authoring contract, and the docs. Apps live in their own repositories on purpose.
+The platform repository [dsh-webpage](https://github.com/Wha1eChai/dsh-webpage) holds the kernel, the authoring contract, and the docs. Start a new App from [dsh-app-template](https://github.com/Wha1eChai/dsh-app-template). Apps live in their own repositories on purpose.
