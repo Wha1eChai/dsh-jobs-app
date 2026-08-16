@@ -53,7 +53,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wha1eChai/dsh-jobs-app.git"
+    "url": "git+https://github.com/dshapps/dsh-jobs-app.git"
   },
   "packageManager": "pnpm@11.7.0",
   "engines": {
