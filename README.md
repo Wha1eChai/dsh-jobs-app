@@ -1,5 +1,7 @@
 # dsh-jobs-app
 
+English | [中文](README.zh.md)
+
 Historical example. Package `@dshapps/jobs-app`. App ID `dshapps.jobs`, `surface: 'panel'`. Deliberately not in the standing web profile.
 
 An independent DeepSeek Harness App for the current session's background jobs. It reads `jobsBySession` for the selected session read-only. It does not cancel jobs, stream output, or add Host remotes. It does not fork or replace the official `@deepseek-ai/dsh-client-ui-jobs` popover.
@@ -48,3 +50,5 @@ On machines where nested `pnpm run` resolves pnpm `11.0.9` against `packageManag
 ## Family
 
 The platform repository [dsh-webpage](https://github.com/dshapps/dsh-webpage) holds the kernel, the authoring contract, and the docs. Start a new App from [dsh-app-template](https://github.com/dshapps/dsh-app-template). Apps live in their own repositories on purpose.
+
+Licensed under the [MIT License](LICENSE).
